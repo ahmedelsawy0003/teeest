@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'components/breadcrumb.html' with context %}
+<section class="header-actions">
+    <h1>طلبات التوريد</h1>
+    <a href="/supply-orders/new" class="btn-primary">طلب جديد</a>
+</section>
+<table>
+    <thead>
+        <tr>
+            <th>الرمز</th>
+            <th>المشروع</th>
+            <th>المورد</th>
+            <th>الحالة</th>
+            <th>الإجمالي مع الضريبة</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.order_code }}</td>
+            <td>{{ order.project_id }}</td>
+            <td>{{ order.supplier_id }}</td>
+            <td>{{ order.status }}</td>
+            <td>{{ order.total_with_vat }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'components/pagination.html' with context %}
+{% endblock %}

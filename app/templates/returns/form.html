@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'components/breadcrumb.html' with context %}
+<section class="form-section">
+    <h1>{{ title }}</h1>
+    <form method="post" action="{{ action }}" class="form-grid">
+        <label for="project_id">المشروع</label>
+        <input id="project_id" name="project_id" value="{{ return.project_id if return else '' }}" required>
+        <label for="supplier_id">المورد</label>
+        <input id="supplier_id" name="supplier_id" value="{{ return.supplier_id if return else '' }}">
+        <label for="total_amount">القيمة</label>
+        <input id="total_amount" name="total_amount" type="number" step="0.01" value="{{ return.total_amount if return else '' }}" required>
+        <label for="reason">السبب</label>
+        <input id="reason" name="reason" value="{{ return.reason if return else '' }}" required>
+        <label for="notes">ملاحظات</label>
+        <textarea id="notes" name="notes">{{ return.notes if return else '' }}</textarea>
+        <button type="submit" class="btn-primary">حفظ</button>
+    </form>
+</section>
+{% endblock %}

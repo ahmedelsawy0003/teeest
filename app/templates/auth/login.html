@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="auth-section">
+    <h1>تسجيل الدخول</h1>
+    <form method="post" action="/api/auth/login" class="auth-form">
+        <label for="username">اسم المستخدم</label>
+        <input id="username" name="username" placeholder="اكتب اسم المستخدم" required>
+        <label for="password">كلمة المرور</label>
+        <input id="password" name="password" type="password" placeholder="اكتب كلمة المرور" required>
+        <button type="submit" class="btn-primary">دخول</button>
+    </form>
+</section>
+{% endblock %}

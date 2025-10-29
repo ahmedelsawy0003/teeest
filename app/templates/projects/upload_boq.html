@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'components/breadcrumb.html' with context %}
+<section class="form-section">
+    <h1>رفع ملف بنود</h1>
+    <form method="post" action="/api/projects/{{ project_id }}/boq/upload" enctype="multipart/form-data">
+        <label for="file">ملف الإكسل</label>
+        <input id="file" name="file" type="file" accept=".xlsx,.xls" required>
+        <button type="submit" class="btn-primary">رفع</button>
+    </form>
+</section>
+{% endblock %}
