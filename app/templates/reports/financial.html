@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'components/breadcrumb.html' with context %}
+<section class="report-section">
+    <h1>التقرير المالي</h1>
+    <div class="report-grid">
+        {% for key, value in report.items() %}
+        <div class="report-card">
+            <span>{{ key }}</span>
+            <strong>{{ value }}</strong>
+        </div>
+        {% endfor %}
+    </div>
+    <a class="btn-secondary" href="/api/reports/financial/pdf">تحميل PDF</a>
+</section>
+{% endblock %}

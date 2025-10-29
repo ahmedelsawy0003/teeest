@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'components/breadcrumb.html' with context %}
+<section class="header-actions">
+    <h1>المرتجعات</h1>
+    <a href="/returns/new" class="btn-primary">مرتجع جديد</a>
+</section>
+<table>
+    <thead>
+        <tr>
+            <th>الرمز</th>
+            <th>المشروع</th>
+            <th>المورد</th>
+            <th>الحالة</th>
+            <th>القيمة</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ret in returns %}
+        <tr>
+            <td>{{ ret.return_code }}</td>
+            <td>{{ ret.project_id }}</td>
+            <td>{{ ret.supplier_id }}</td>
+            <td>{{ ret.status }}</td>
+            <td>{{ ret.total_amount }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'components/pagination.html' with context %}
+{% endblock %}

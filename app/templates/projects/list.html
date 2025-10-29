@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'components/breadcrumb.html' with context %}
+<section class="header-actions">
+    <h1>المشاريع</h1>
+    <a href="/projects/new" class="btn-primary">مشروع جديد</a>
+</section>
+<table>
+    <thead>
+        <tr>
+            <th>الكود</th>
+            <th>الاسم</th>
+            <th>العميل</th>
+            <th>الحالة</th>
+            <th>الميزانية</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for project in projects %}
+        <tr>
+            <td><a href="/projects/{{ project.id }}">{{ project.project_code }}</a></td>
+            <td>{{ project.project_name }}</td>
+            <td>{{ project.client_name }}</td>
+            <td>{{ project.status }}</td>
+            <td>{{ project.total_budget }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'components/pagination.html' with context %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'components/breadcrumb.html' with context %}
+<section class="form-section">
+    <h1>{{ title }}</h1>
+    <form method="post" action="{{ action }}" class="form-grid">
+        <label for="company_name">اسم الشركة</label>
+        <input id="company_name" name="company_name" value="{{ supplier.company_name if supplier else '' }}" required>
+        <label for="contact_person">مسؤول التواصل</label>
+        <input id="contact_person" name="contact_person" value="{{ supplier.contact_person if supplier else '' }}">
+        <label for="phone">الهاتف</label>
+        <input id="phone" name="phone" value="{{ supplier.phone if supplier else '' }}">
+        <label for="email">البريد الإلكتروني</label>
+        <input id="email" name="email" type="email" value="{{ supplier.email if supplier else '' }}">
+        <label for="rating">التقييم</label>
+        <input id="rating" name="rating" type="number" step="0.1" value="{{ supplier.rating if supplier else 0 }}">
+        <button type="submit" class="btn-primary">حفظ</button>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,13 @@
+<nav class="breadcrumb" aria-label="مسار التنقل">
+    <ol>
+        {% for name, link in items %}
+            <li>
+                {% if link %}
+                    <a href="{{ link }}">{{ name }}</a>
+                {% else %}
+                    <span aria-current="page">{{ name }}</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ol>
+</nav>
