@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'components/breadcrumb.html' with context %}
+<section class="cards">
+    {% for title, value in summary.items() %}
+        <article class="card">
+            <h2>{{ title }}</h2>
+            <p>{{ value }}</p>
+        </article>
+    {% endfor %}
+</section>
+<section class="tables">
+    <div class="table-card">
+        <h2>أحدث طلبات التوريد</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>الرمز</th>
+                    <th>الإجمالي</th>
+                    <th>التاريخ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in latest_orders %}
+                <tr>
+                    <td>{{ order['الرمز'] }}</td>
+                    <td>{{ order['الإجمالي'] }}</td>
+                    <td>{{ order['التاريخ'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="table-card">
+        <h2>أحدث الدفعات</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>الرمز</th>
+                    <th>الإجمالي</th>
+                    <th>التاريخ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for payment in latest_payments %}
+                <tr>
+                    <td>{{ payment['الرمز'] }}</td>
+                    <td>{{ payment['الإجمالي'] }}</td>
+                    <td>{{ payment['التاريخ'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'components/breadcrumb.html' with context %}
+<section class="project-header">
+    <h1>{{ project.project_name }}</h1>
+    <p>{{ project.client_name }} - {{ project.status }}</p>
+</section>
+<section class="project-stats">
+    <div class="stat">
+        <span>الميزانية</span>
+        <strong>{{ project.total_budget }}</strong>
+    </div>
+    <div class="stat">
+        <span>المصروف</span>
+        <strong>{{ project.total_spent }}</strong>
+    </div>
+    <div class="stat">
+        <span>المتبقي</span>
+        <strong>{{ project.remaining_budget }}</strong>
+    </div>
+</section>
+<section>
+    <h2>بنود الكميات</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>رقم البند</th>
+                <th>الاسم</th>
+                <th>الكمية</th>
+                <th>سعر الوحدة</th>
+                <th>الإجمالي</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in project.boq_items %}
+            <tr>
+                <td>{{ item.item_code }}</td>
+                <td>{{ item.item_name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.unit_price }}</td>
+                <td>{{ item.total_price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

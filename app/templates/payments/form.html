@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'components/breadcrumb.html' with context %}
+<section class="form-section">
+    <h1>{{ title }}</h1>
+    <form method="post" action="{{ action }}" class="form-grid">
+        <label for="project_id">المشروع</label>
+        <input id="project_id" name="project_id" value="{{ payment.project_id if payment else '' }}" required>
+        <label for="supplier_id">المورد</label>
+        <input id="supplier_id" name="supplier_id" value="{{ payment.supplier_id if payment else '' }}">
+        <label for="amount">المبلغ</label>
+        <input id="amount" name="amount" type="number" step="0.01" value="{{ payment.amount if payment else '' }}" required>
+        <label for="payment_date">تاريخ الدفع</label>
+        <input id="payment_date" name="payment_date" type="date" value="{{ payment.payment_date if payment else '' }}">
+        <label for="notes">ملاحظات</label>
+        <textarea id="notes" name="notes">{{ payment.notes if payment else '' }}</textarea>
+        <button type="submit" class="btn-primary">حفظ</button>
+    </form>
+</section>
+{% endblock %}

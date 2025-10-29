@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'components/breadcrumb.html' with context %}
+<section class="header-actions">
+    <h1>الموردون</h1>
+    <a href="/suppliers/new" class="btn-primary">مورد جديد</a>
+</section>
+<table>
+    <thead>
+        <tr>
+            <th>الكود</th>
+            <th>الشركة</th>
+            <th>الهاتف</th>
+            <th>التقييم</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for supplier in suppliers %}
+        <tr>
+            <td>{{ supplier.supplier_code }}</td>
+            <td>{{ supplier.company_name }}</td>
+            <td>{{ supplier.phone }}</td>
+            <td>{{ supplier.rating }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'components/pagination.html' with context %}
+{% endblock %}
