@@ -1,0 +1,9 @@
+<nav class="navbar" aria-label="شريط التنقل">
+    <div class="navbar-brand">ProManage</div>
+    <div class="navbar-actions">
+        <button class="icon-button" title="التنبيهات" aria-label="عرض التنبيهات">
+            🔔 <span class="badge" id="notification-count">0</span>
+        </button>
+        <div class="user-menu">{{ request.state.user.full_name if request.state.user else 'ضيف' }}</div>
+    </div>
+</nav>

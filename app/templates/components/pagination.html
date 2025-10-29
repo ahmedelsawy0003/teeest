@@ -1,0 +1,9 @@
+<div class="pagination" role="navigation" aria-label="ترقيم الصفحات">
+    {% if pagination.page > 1 %}
+        <a class="page-link" href="?page={{ pagination.page - 1 }}&size={{ pagination.size }}">السابق</a>
+    {% endif %}
+    <span class="page-info">صفحة {{ pagination.page }} من {{ (pagination.total // pagination.size) + 1 }}</span>
+    {% if pagination.page * pagination.size < pagination.total %}
+        <a class="page-link" href="?page={{ pagination.page + 1 }}&size={{ pagination.size }}">التالي</a>
+    {% endif %}
+</div>

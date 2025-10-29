@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+promanage.db
+app/static/uploads/*
+!.gitkeep
+.alembic
+.mypy_cache/
+.idea/
+.vscode/
